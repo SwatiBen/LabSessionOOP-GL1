@@ -1,7 +1,5 @@
 package com.ben.service;
 
-
-
 import java.util.Random;
 
 import com.ben.EmailImpl.Employee;
@@ -16,18 +14,18 @@ public class CredentialServiceImplementation implements CredentialService{
         String capString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         String lowerCase = capString.toLowerCase();
         String num = "0123456789";
-        String splchar = "!@#$%^&*~";
+        String splchar = "!@#$%^&*~()";
 
         String finalCase = capString + lowerCase + num + splchar;
-        String pass = "";
+        String filter = "";
 
         Random random = new Random();
 
         for(int i=0;i<passwordLength;i++){
-            pass = pass + finalCase.charAt(random.nextInt(finalCase.length()));
+            filter = filter + finalCase.charAt(random.nextInt(finalCase.length()));
         }
 
-        return pass;
+        return filter;
     }
 
     public String generateEmailAddress(Employee employee) {
@@ -39,10 +37,12 @@ public class CredentialServiceImplementation implements CredentialService{
     }
 
     public String showDetail(Employee employee) {
-        System.out.println("Dear "+employee.getFirstName()+" your generated credentials are as follows");
+    	
+        System.out.println("Dear "+employee.getFirstName()+
+        		" your generated credentials are as follows");
         System.out.println("Email --> "+employee.getEmail());
         System.out.println("Password --> "+employee.getPassword());
-
+        
         return null;
     }
 }
