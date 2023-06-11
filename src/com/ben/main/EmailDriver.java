@@ -14,13 +14,13 @@ public class EmailDriver {
         Scanner scan1 = new Scanner(System.in);
         System.out.println("Enter first name ");
         String fname = scan1.nextLine();
+        
         System.out.println("Enter last name ");
         String lname = scan1.nextLine();
 
-
         Employee employee = new Employee(fname,lname);
 
-        System.out.println("Please enter the Department as following ");
+        System.out.println("Please enter the Department from the following ");
         System.out.println("1. Technical ");
         System.out.println("2. Admin ");
         System.out.println("3. Human Resource ");
